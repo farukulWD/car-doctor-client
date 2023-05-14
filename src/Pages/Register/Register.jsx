@@ -1,30 +1,29 @@
 import { Link } from "react-router-dom";
-import loginImg from "../../assets/images/login/login.svg"
+import loginImg from "../../assets/images/login/login.svg";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
 
-  const {createUser}=useContext(AuthContext)
-
-  const handleRegister = event=>{
-    event.preventDefault()
+  const handleRegister = (event) => {
+    event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    createUser(email,password)
-    .then(result=>{
-      const createdUser = result.user;
-      console.log(createdUser);
-    })
-    .catch(error=>{
-      console.log(error.message);
-    })
-
-  }
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="hero min-h-screen ">
@@ -81,28 +80,13 @@ const Register = () => {
                   value="Register"
                 />
               </div>
-              <div className="text-center space-y-2">
-                <p className="mt-2">Or Sign In With</p>
-                <div>
-                  <button className="btn border-none hover:bg-transparent bg-transparent text-xl text-[#0A66C2]">
-                    
-                    <FaFacebook></FaFacebook>
-                  </button>
-                  <button className="btn border-none hover:bg-transparent text-xl bg-transparent text-[#0A66C2]">
-                    
-                    <FaLinkedin></FaLinkedin>
-                  </button>
-                  <button className="btn text-xl border-none hover:bg-transparent bg-transparent">
-                    <FcGoogle></FcGoogle>
-                  </button>
-                </div>
-                <p>
-                   Have an account?
-                  <span className="text-[#FF3811]">
-                    <Link to="/login">Login</Link>
-                  </span>
-                </p>
-              </div>
+              <SocialLogin></SocialLogin>
+              <p className="text-center">
+                You have an account?{" "}
+                <span className="text-[#FF3811]">
+                  <Link to="/login">Login</Link>
+                </span>
+              </p>
             </form>
           </div>
         </div>

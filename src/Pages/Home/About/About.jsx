@@ -3,7 +3,7 @@ import parts from "../../../assets/images/about_us/parts.jpg";
 
 const About = () => {
   return (
-    <div className="hero min-h-screen">
+    <div id="about" className="hero my-6 min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
         <div className="lg:w-1/2 relative">
           <img src={person} className="w-3/4 rounded-lg shadow-2xl" />
@@ -13,7 +13,7 @@ const About = () => {
           />
         </div>
         <div className="lg:w-1/2">
-          <div className="w-2/3 space-y-4">
+          <div className="lg:w-2/3 space-y-4">
             <h3 className="text-[#FF3811] text-lg font-semibold">About Us</h3>
             <h1 className="text-5xl text-black font-bold">
               We are qualified & of experience in this field

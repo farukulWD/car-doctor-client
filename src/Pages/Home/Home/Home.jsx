@@ -3,6 +3,8 @@ import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Services from "../Services/Services";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import CallToAction from "../callToAction/CallToAction";
+import Products from "./Products/Products";
 
 
 const Home = () => {
@@ -10,12 +12,14 @@ const Home = () => {
     if (loader) {
         console.log("loading...");
     }
-    console.log(user);
+    
     return (
         <div>
             <Banner></Banner>
             <About></About>
             <Services></Services>
+            <CallToAction></CallToAction>
+            <Products></Products>
         </div>
     );
 };
